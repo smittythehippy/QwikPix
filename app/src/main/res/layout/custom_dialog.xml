@@ -18,8 +18,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_continue"
-        android:backgroundTintMode="multiply"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         app:layout_constraintBottom_toTopOf="@+id/btnCancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -40,16 +39,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUsername"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+
+        >
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:hint=" Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
-            android:textSize="16sp" />
+            />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -62,14 +63,17 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:autofillHints=""
         android:background="@drawable/roundedcorners"
-        android:hint=" Email"
-        android:inputType="text"
+        android:fontFamily="@font/averia_libre_light"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/etUsername"
@@ -80,14 +84,17 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:autofillHints=""
         android:background="@drawable/roundedcorners"
-        android:hint=" Username"
+        android:fontFamily="@font/averia_libre_light"
+        android:hint="@string/username"
         android:inputType="text"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
+        tools:targetApi="o" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -95,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="cursive"
-        android:text="New User"
+        android:text="@string/new_user"
         android:textColor="@color/loginTitle"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,7 +127,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_cancel"
-        android:text="Cancel"
+        android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

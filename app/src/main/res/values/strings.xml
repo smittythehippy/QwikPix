@@ -3,4 +3,17 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_account_prompt">Don\'t have an accunt? Sign Up Here!</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="qwikpix">QwikPix</string>
+    <string name="cancel">Cancel</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="new_user">New User</string>
+    <string name="logout">Logout</string>
+    <string name="submit">Submit</string>
+    <string name="capture_photo">Capture Photo</string>
+    <string name="description">Enter description here...</string>
 </resources>

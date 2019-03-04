@@ -18,7 +18,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_continue"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:fontFamily="sans-serif-medium"
-            android:hint=" Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
 
     </android.support.design.widget.TextInputLayout>
@@ -63,12 +63,13 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/roundedcorners"
         android:fontFamily="sans-serif-medium"
-        android:hint=" Username"
+        android:hint="@string/username"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -76,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="cursive"
-        android:text="QwikPix"
+        android:text="@string/qwikpix"
         android:textColor="@color/loginTitle"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Don't have an accunt? Sign Up!"
+        android:text="@string/new_account_prompt"
         android:textColor="@color/design_default_color_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

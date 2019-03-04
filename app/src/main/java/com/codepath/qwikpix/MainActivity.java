@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSubmit;
     private Button btnLogout;
     private ImageView ivPostPic;
-    private Toolbar toolbar;
-    private NavigationView nvDrawer;
-    private DrawerLayout mDrawer;
 
 
     @Override
@@ -54,7 +51,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //toolbar = findViewById(R.id.toolbar);
+        ParseUser currentUser = ParseUser.getCurrentUser();
+
+        if(currentUser == null){
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+        }
+
+        final ParseUser currentUser2 = ParseUser.getCurrentUser();
+
         etDescription = findViewById(R.id.etDescription);
         btnLogout = findViewById(R.id.btnLogout);
         btnCapture = findViewById(R.id.btnCapture);
@@ -77,20 +82,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
- //       queryPosts();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String description = etDescription.getText().toString();
-                ParseUser user = ParseUser.getCurrentUser();
                 //Error checking to confirm good data
                 if(photoFile == null || ivPostPic.getDrawable() == null){
                     Log.e(TAG, "No photo to submit");
                     Toast.makeText(MainActivity.this, "There is no photo!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                savePost(description, user, photoFile);
+                savePost(description, currentUser2, photoFile);
             }
         });
 

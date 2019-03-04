@@ -10,16 +10,20 @@
 
     <EditText
         android:id="@+id/etDescription"
+        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/roundedcorners"
         android:ems="10"
-        android:hint="Description..."
+        android:fontFamily="@font/averia_libre_light"
+        android:gravity="center"
+        android:hint="@string/description"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,15 +42,16 @@
         android:layout_marginBottom="8dp"
 
         android:background="@drawable/button_continue"
-        android:text="Capture Photo"
+        android:fontFamily="@font/averia_libre_light"
+        android:text="@string/capture_photo"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/ivPostPic"
-        android:layout_width="200dp"
-        android:layout_height="245dp"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btnCapture"
@@ -65,7 +70,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/button_continue"
-        android:text="Submit"
+        android:fontFamily="@font/averia_libre_light"
+        android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -86,7 +92,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_cancel"
-        android:text="Logout"
+        android:fontFamily="@font/averia_libre_light"
+        android:text="@string/logout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
