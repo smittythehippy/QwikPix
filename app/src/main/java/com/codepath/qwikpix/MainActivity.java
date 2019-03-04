@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etDescription;
     private Button btnCapture;
     private Button btnSubmit;
+    private Button btnLogout;
     private ImageView ivPostPic;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -54,9 +56,19 @@ public class MainActivity extends AppCompatActivity {
 
         //toolbar = findViewById(R.id.toolbar);
         etDescription = findViewById(R.id.etDescription);
+        btnLogout = findViewById(R.id.btnLogout);
         btnCapture = findViewById(R.id.btnCapture);
         ivPostPic = findViewById(R.id.ivPostPic);
         btnSubmit = findViewById(R.id.btnSubmit);
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOut();
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         btnCapture.setOnClickListener(new View.OnClickListener() {
             @Override
