@@ -121,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void login(String username, String password){
         ParseUser.logInInBackground(username, password, new LogInCallback() {
+            //todo show loading icon until main activity is reached.
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e != null){

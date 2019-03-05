@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="loginTitle">#A0E1FF</color>
+    <color name="signUpPrompt">#DF35ADE4</color>
     <color name="buttonContinue">#BE2085EE</color>
     <color name="buttonCancel">#6BDF0A0A</color>
 </resources>

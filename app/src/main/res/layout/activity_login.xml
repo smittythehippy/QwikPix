@@ -18,7 +18,9 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_continue"
+        android:fontFamily="@font/averia_libre_light"
         android:text="@string/login"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -94,12 +96,13 @@
 
     <Button
         android:id="@+id/btnSignUp"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/averia_libre_light"
         android:text="@string/new_account_prompt"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/signUpPrompt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

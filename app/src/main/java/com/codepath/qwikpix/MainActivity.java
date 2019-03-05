@@ -1,5 +1,6 @@
 package com.codepath.qwikpix;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -44,27 +46,26 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSubmit;
     private Button btnLogout;
     private ImageView ivPostPic;
-
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ParseUser currentUser = ParseUser.getCurrentUser();
+        final ParseUser currentUser = ParseUser.getCurrentUser();
 
         if(currentUser == null){
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
         }
 
-        final ParseUser currentUser2 = ParseUser.getCurrentUser();
-
         etDescription = findViewById(R.id.etDescription);
         btnLogout = findViewById(R.id.btnLogout);
         btnCapture = findViewById(R.id.btnCapture);
         ivPostPic = findViewById(R.id.ivPostPic);
         btnSubmit = findViewById(R.id.btnSubmit);
+        progressBar = findViewById(R.id.progressBar);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "There is no photo!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                savePost(description, currentUser2, photoFile);
+                savePost(description, currentUser, photoFile);
             }
         });
 
@@ -101,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void savePost(String description, ParseUser user, File photoFile) {
+        progressBar.setVisibility(View.VISIBLE);
+        Toast.makeText(this, "...One moment...", Toast.LENGTH_SHORT).show();
+
         Post post = new Post();
         post.setDescription(description);
         post.setUser(user);
@@ -110,12 +114,16 @@ public class MainActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if(e != null){
                     Log.d(TAG, "Error while saving");
+                    Toast.makeText(MainActivity.this, "Error while posting!", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.INVISIBLE);
                     e.printStackTrace();
                     return;
                 }
                 Log.d(TAG, "Successfully saved post");
                 etDescription.setText("");
                 ivPostPic.setImageResource(0);
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(MainActivity.this, "Your picture was posted!", Toast.LENGTH_LONG).show();
             }
         });
     }
