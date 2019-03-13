@@ -57,7 +57,7 @@ public class PostFragment extends Fragment {
                 for(int i = 0; i < posts.size(); i++) {
                     Post post = posts.get(i);
                     if(post.getUser() != null) {
-                        Log.d(TAG, "Post: " + posts.get(i).getDescription() + " username: " + posts.get(i).getUser().getUsername());
+                        Log.d(TAG, "Post: " + posts.get(i).getDescription() + " username: " + post.getUser().getUsername());
                     }
                 }
             }

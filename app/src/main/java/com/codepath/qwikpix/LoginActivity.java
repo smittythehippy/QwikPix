@@ -27,7 +27,7 @@ import com.parse.SignUpCallback;
 
 import org.w3c.dom.Text;
 
-//parse-dashboard --appId qwik-pix --masterKey KeyForFastPix --serverURL "https://qwik-pix.herokuapp.com/parse"
+
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
