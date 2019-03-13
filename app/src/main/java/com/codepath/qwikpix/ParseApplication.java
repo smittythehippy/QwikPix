@@ -1,11 +1,12 @@
 package com.codepath.qwikpix;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
 
-public class ParseApplication extends Application {
+public class ParseApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {
