@@ -48,13 +48,16 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private TextView tvHandle;
         private ImageView ivImage;
         private TextView tvDescription;
+        private TextView tvCreatedAt;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvHandle = itemView.findViewById(R.id.tvHandle);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            tvCreatedAt = itemView.findViewById(R.id.tvCreatedAt);
         }
+
 
         public void bind(Post post){
             if(post.getUser()!= null) {

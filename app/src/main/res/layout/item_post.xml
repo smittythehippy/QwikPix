@@ -31,6 +31,12 @@
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
+        android:id="@+id/tvCreatedAt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="date" />
+
+    <TextView
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

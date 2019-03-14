@@ -7,7 +7,7 @@
     <color name="signUpPrompt">#DF35ADE4</color>
     <color name="buttonContinue">#BE2085EE</color>
     <color name="buttonCancel">#6BDF0A0A</color>
-    <color name="bottomNav">#EB000568</color>
+    <color name="bottomNav">#EB4E4E4E</color>
     <color name="bottomNavIcons">#FFFFFF</color>
     <color name="BottomNavText">#EB2600C9</color>
 </resources>
