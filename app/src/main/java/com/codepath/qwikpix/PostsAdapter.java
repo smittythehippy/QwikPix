@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
-import com.parse.ParseImageView;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tvHandle;
-        private ParseImageView ivImage;
+        private ImageView ivImage;
         private TextView tvDescription;
 
         public ViewHolder(@NonNull View itemView) {
@@ -60,9 +60,22 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             if(post.getUser()!= null) {
                 tvHandle.setText(post.getUser().getUsername());
             }
-            ivImage.setParseFile(post.getImage());
-            ivImage.loadInBackground();
+            ParseFile image = post.getImage();
+            if(image!=null) {
+                Glide.with(context).load(image.getUrl()).into(ivImage);
+            }
             tvDescription.setText(post.getDescription());
         }
+    }
+    // Clean all elements of the recycler
+    public void clear() {
+        posts.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Post> list) {
+        posts.addAll(list);
+        notifyDataSetChanged();
     }
 }

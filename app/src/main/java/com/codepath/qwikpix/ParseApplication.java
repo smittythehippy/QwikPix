@@ -21,7 +21,5 @@ public class ParseApplication extends MultiDexApplication {
                 .applicationId("qwik-pix") // should correspond to APP_ID env variable
                 .clientKey("KeyForFastPix")  // set explicitly unless clientKey is explicitly configured on Parse server
                 .server("https://qwik-pix.herokuapp.com/parse/").build());
-
-
     }
 }

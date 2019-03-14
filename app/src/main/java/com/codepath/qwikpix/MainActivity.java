@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.codepath.qwikpix.fragments.ComposeFragment;
 import com.codepath.qwikpix.fragments.PostFragment;
+import com.codepath.qwikpix.fragments.ProfileFragment;
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_profile:
                     default:
                         //todo: swap fragment here
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();

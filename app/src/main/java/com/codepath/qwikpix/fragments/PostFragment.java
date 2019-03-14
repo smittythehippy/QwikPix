@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,9 +25,11 @@ import java.util.List;
 public class PostFragment extends Fragment {
 
     public static final String TAG = "PostFragment";
-    private RecyclerView rvPosts;
-    private PostsAdapter adapter;
-    private List<Post> mPosts;
+    protected RecyclerView rvPosts;
+    protected PostsAdapter adapter;
+    protected List<Post> mPosts;
+    protected SwipeRefreshLayout swipeContainer;
+
     // oncreateView to inflate the view
     @Nullable
     @Override
@@ -37,8 +40,19 @@ public class PostFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        rvPosts = view.findViewById(R.id.rvPosts);
 
+        swipeContainer = view.findViewById(R.id.swipeContainer);
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright);
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.clear();
+                queryPosts();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        rvPosts = view.findViewById(R.id.rvPosts);
         //create the data source
         mPosts = new ArrayList<>();
         //create the adapter
@@ -51,9 +65,11 @@ public class PostFragment extends Fragment {
         queryPosts();
     }
 
-    private void queryPosts(){
+    protected void queryPosts(){
         ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
         postQuery.include(Post.KEY_USER);
+        postQuery.setLimit(20);
+        postQuery.addDescendingOrder(Post.KEY_CREATED_AT);
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> posts, ParseException e) {
